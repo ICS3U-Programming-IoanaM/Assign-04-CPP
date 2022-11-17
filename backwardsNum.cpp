@@ -33,14 +33,14 @@ bool playAgain() {
 }
 
 int main() {
-    // variables
-    std::string userNum;
-
-    // getting user input
-    std::cout << "Enter any number: ";
-    std::cin >> userNum;
-
     do {
+        // variables
+        std::string userNum;
+
+        // getting user input
+        std::cout << "Enter any number: ";
+        std::cin >> userNum;
+
         // try catch
         try {
             stoi(userNum);
