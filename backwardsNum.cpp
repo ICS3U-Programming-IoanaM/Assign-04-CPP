@@ -29,7 +29,7 @@ bool playAgain() {
         } else {
             std::cout << "Please enter y or n!" << std::endl;
         }
-    } 
+    }
 }
 
 int main() {
@@ -67,9 +67,7 @@ int main() {
         } catch (std::invalid_argument) {
             std::cout << userNum << " is not a valid number!" << std::endl;
         }
-    }
-    while (playAgain())
-        ;
+    } while (playAgain());
 
     // exit message
     std::cout << "Thank you for using this program!" << std::endl;
