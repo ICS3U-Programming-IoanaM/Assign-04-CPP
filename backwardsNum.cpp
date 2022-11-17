@@ -7,22 +7,43 @@
 
 #include <iostream>
 
+// to rerun the program
+bool playAgain() {
+    while (true) {
+        // variables
+        std::string replay;
+
+        // guts user input
+        std::cout << "Do you want to run this program again? [y/n] ";
+        std::cin >> replay;
+
+        // if user wants to play again
+        if (replay == "y") {
+            return true;
+
+            // if user doesn't want to play again
+        } else if (replay == "n") {
+            return false;
+
+        // user input invalid
+        } else {
+            std::cout << "Please enter y or n!" << std::endl;
+        }
+    } 
+}
+
 int main() {
     // variables
     std::string userNum;
-    bool isNotValid = true;
 
     // getting user input
     std::cout << "Enter any number: ";
     std::cin >> userNum;
 
-    while (isNotValid) {
+    do {
         // try catch
         try {
             stoi(userNum);
-
-            // breaks out of loop
-            isNotValid = false;
 
             // cycles through each digit of user's number
             for (int counter = userNum.length(); counter >= 0; counter--) {
@@ -34,5 +55,8 @@ int main() {
         } catch (std::invalid_argument) {
             std::cout << userNum << " is not a valid number!" << std::endl;
         }
-    }
+    } while (playAgain());
+
+    // exit message
+    std::cout << "Thank you for using this program!" << std::endl;
 }
