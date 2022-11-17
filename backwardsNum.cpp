@@ -33,29 +33,43 @@ bool playAgain() {
 }
 
 int main() {
-    do {
-        // variables
-        std::string userNum;
+    // variables
+    std::string userNum;
+    int userNumInt;
 
+    // loops until user doesn't want to use it anymore
+    do {
         // getting user input
         std::cout << "Enter any number: ";
         std::cin >> userNum;
 
         // try catch
         try {
-            stoi(userNum);
+            userNumInt = stoi(userNum);
 
-            // cycles through each digit of user's number
-            for (int counter = userNum.length(); counter >= 0; counter--) {
-                std::cout << userNum[counter];
+            // if userNum is a negative
+            if (userNumInt < 0) {
+                // cycles through each digit of user's number, excluding the "-"
+                std::cout << userNum[0];
+                for (int counter = userNum.length(); counter > 0; counter--) {
+                    std::cout << userNum[counter];
+                }
+                std::cout << std::endl;
+            } else {
+                // cycles through each digit of user's number
+                for (int counter = userNum.length(); counter >= 0; counter--) {
+                    std::cout << userNum[counter];
+                }
+                std::cout << std::endl;
             }
-            std::cout << std::endl;
 
             // user num isn't an int
         } catch (std::invalid_argument) {
             std::cout << userNum << " is not a valid number!" << std::endl;
         }
-    } while (playAgain());
+    }
+    while (playAgain())
+        ;
 
     // exit message
     std::cout << "Thank you for using this program!" << std::endl;
