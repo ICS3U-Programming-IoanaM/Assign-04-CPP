@@ -36,6 +36,7 @@ int main() {
     // variables
     std::string userNum;
     int userNumInt;
+    float userNumFloat;
 
     // loops until user doesn't want to use it anymore
     do {
@@ -46,6 +47,14 @@ int main() {
         // try catch
         try {
             userNumInt = stoi(userNum);
+            userNumFloat = stof(userNum);
+
+            // checks if its a decimal
+            if (userNumInt != userNumFloat) {
+                std::cout << userNum << " is not a valid number!"
+                          << std::endl;
+                continue;
+            }
 
             // if userNum is a negative
             if (userNumInt < 0) {
